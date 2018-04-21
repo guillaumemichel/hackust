@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from collections import Counter
 
 app = Flask(__name__)
@@ -6,9 +6,12 @@ app = Flask(__name__)
 users_waiting_on_bus = Counter()
 empty_seat_on_bus = Counter()
 
-@app.route("/user/<busId>")
-def userAwaits(busIds):
-    [users_waiting_on_bus[busId] += 1 for busId in busIds]
+@app.route("/user", methods=["POST"])
+def userAwaits():
+    busIds = request.get_json()["busIds"]
+    for busId in busIds:
+        users_waiting_on_bus[busId] += 1
+    print(users_waiting_on_bus)
     return "Success"
 
 @app.route("/emptySeats/<busId>/<numSeats>")
@@ -22,4 +25,5 @@ def busStart(busId):
     return "{}".format(users_waiting_on_bus[busId] >= empty_seat_on_bus[busId])
 
 if __name__ == '__main__':
+   print("runnin")
    app.run()
