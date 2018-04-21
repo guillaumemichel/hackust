@@ -1,6 +1,4 @@
 from flask import Flask, request, jsonify
-from collections import Counter
-
 
 # bus_db
 # busID : Route | Location | # of seats occupied | # of stops
