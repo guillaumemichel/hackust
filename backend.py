@@ -7,6 +7,10 @@ app = Flask(__name__)
 users_waiting_on_bus = Counter()
 empty_seat_on_bus = Counter()
 
+@app.route("/test")
+def testing():
+    return "All is well"
+
 @app.route("/user", methods=["POST"])
 def userAwaits():
     busIds = request.get_json()["busIds"]
