@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">User</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string-array name="heading_titles">
+        <item>11</item>
+        <item>11M</item>
+        <item>101M</item>
+    </string-array>
+    <string-array name="h1_item">
+        <item>1:30</item>
+        <item>19:30</item>
+    </string-array>
+    <string-array name="h2_item">
+        <item>1:40</item>
+        <item>20:00</item>
+    </string-array>
+    <string-array name="h3_item">
+        <item>5:00</item>
+        <item>25:00</item>
+    </string-array>
+
 </resources>

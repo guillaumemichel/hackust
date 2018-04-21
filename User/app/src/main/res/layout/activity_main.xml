@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/viewBusesBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="169dp"
@@ -23,18 +23,16 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="113dp"
+        android:layout_width="364dp"
+        android:layout_height="69dp"
         android:layout_marginEnd="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="120dp"
         android:iconifiedByDefault="false"
         android:orientation="vertical"
         android:queryHint="Destination"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
