@@ -25,5 +25,5 @@ def busStart(busId):
     return "{}".format(users_waiting_on_bus[busId] >= empty_seat_on_bus[busId])
 
 if __name__ == '__main__':
-   print("runnin")
-   app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
