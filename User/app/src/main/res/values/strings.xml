@@ -8,16 +8,16 @@
         <item>101M</item>
     </string-array>
     <string-array name="h1_item">
-        <item>1:30</item>
-        <item>19:30</item>
+        <item>ETA1 1min</item>
+        <item>ETA2 19min</item>
     </string-array>
     <string-array name="h2_item">
-        <item>1:40</item>
-        <item>20:00</item>
+        <item>ETA1 1min</item>
+        <item>ETA2 20min</item>
     </string-array>
     <string-array name="h3_item">
-        <item>5:00</item>
-        <item>25:00</item>
+        <item>ETA1 5min</item>
+        <item>ETA2 25min</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
 

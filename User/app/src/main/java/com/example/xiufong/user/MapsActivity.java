@@ -51,7 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng userpos = new LatLng(22.337204, 114.259235);
         mMap.addMarker(new MarkerOptions().position(userpos).title("You are here!").icon(BitmapDescriptorFactory.fromBitmap(smallMarkerUserPos)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(userpos));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userpos,10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userpos,13));
         //Destination
         LatLng dest = new LatLng(22.315596,114.264393);
         mMap.addMarker(new MarkerOptions().position(dest).title("Destination"));

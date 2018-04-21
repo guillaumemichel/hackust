@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.SearchEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SearchView search = (SearchView)findViewById(R.id.searchView);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent3 = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent3);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+
 
         Button viewBusesBtn = (Button)findViewById(R.id.viewBusesBtn);
         viewBusesBtn.setOnClickListener(new View.OnClickListener() {
@@ -22,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
-
-        SearchEvent searchEvent= (SearchEvent) findViewById(R.id.searchView);
-        searchEvent
     }
+
 }
