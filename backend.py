@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 # busID : Route | Location | # of seats occupied | # of stops
 
 # user_db
-# UserID : Intentions | Location | Destination
+# userID : Intentions | Location | Destination
 
 
 app = Flask(__name__)
@@ -85,19 +85,24 @@ def get_waiting_time(userID):
 
 ############# User Query Service API Layer ##############
 
-# Trigerred when user chooses buses, updates bus list and declares user as awaiting
-# Returns bus information on latest two buses
-@app.route("/user/<userID>/buses", methods=["POST"])
-def user_chooses_buses(userID):
-    intended_busses = request.get_json()["busIds"]
-    update_intentions(userID, intended_busses)
+def answerUser(userID):
     user_awaits(userID)
     res = get_waiting_time(userID)
-
     bus1 = {"id": res[0], "time": res[1], "seats": res[2]}
     bus2 = {"id": res[3], "time": res[4], "seats": res[5]}
     return jsonify({"busses": [bus1, bus2]})
 
+# Trigerred when user chooses buses, updates bus list and declares user as awaiting
+# Returns bus information on latest two buses
+@app.route("/user/<userID>/bus/<busRoute>")
+def user_selects_bus(userID, busRoute):
+    update_intentions(userID, [busRoute])
+    return answerUser(userID)
+
+@app.route("/user/<userID>/bus/<busRoute>/delete")
+def user_unselects_bus(userID, busRoute):
+    user_db[userID][0].pop(busRoute, None)
+    return answerUser(userID)
 ############# Driver Query Service ##############
 def bus_init(busID, route):
     if not bus_db.get(busID, False):
