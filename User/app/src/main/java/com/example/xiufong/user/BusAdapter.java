@@ -1,6 +1,7 @@
 package com.example.xiufong.user;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,6 +17,8 @@ public class BusAdapter extends BaseExpandableListAdapter {
     private List<String> header_titles;
     private HashMap<String,List<String >> child_titles;
     private Context ctx;
+
+    private Boolean[] b = new Boolean[]{false,false,false};
 
     BusAdapter(Context ctx,List<String> header_titles,HashMap<String,List<String >> child_titles){
         this.ctx=ctx;
@@ -68,6 +72,7 @@ public class BusAdapter extends BaseExpandableListAdapter {
         TextView textView = (TextView) convertView.findViewById(R.id.heading_item);
         textView.setTypeface(null, Typeface.BOLD);
         textView.setText(title);
+        b[groupPosition]=false;
 
         return convertView;
     }
@@ -79,9 +84,13 @@ public class BusAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater =(LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.times_list,null);
         }
+        StringBuilder sb = new StringBuilder();
 
         TextView textView =convertView.findViewById(R.id.child_item);
+        b[groupPosition]=true;
+        //textView.setText(sb.append(b[0]).append(b[1]).append(b[2]).toString());
         textView.setText(title);
+        //textView.setTextColor(0xFFFF0000);
 
         return convertView;
     }

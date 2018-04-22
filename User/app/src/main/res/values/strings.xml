@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">User</string>
+    <string name="app_name">Smart Mini Bus</string>
     <string name="hello_world">Hello World!</string>
 
     <string-array name="heading_titles">
