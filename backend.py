@@ -102,6 +102,7 @@ def user_selects_bus(userID, busRoute):
 @app.route("/user/<userID>/bus/<busRoute>/delete")
 def user_unselects_bus(userID, busRoute):
     user_db[userID][0].pop(busRoute, None)
+    users_waiting.pop(busRoute, None)
     return answerUser(userID)
 ############# Driver Query Service ##############
 def bus_init(busID, route):
