@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-
+import os
 # bus_db
 # busID : Route | Location | # of seats occupied | # of stops
 
@@ -142,4 +142,5 @@ if __name__ == '__main__':
     user_init('632', 1) # user 632 at stop 1
     bus_init('420', "11m") # bus 420 at stop 0, with 0 empty seats
     bus_init('931', "12")
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
